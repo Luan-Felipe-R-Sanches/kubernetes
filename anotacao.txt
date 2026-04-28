@@ -1,93 +1,36 @@
-Jobs
+**ConfigMap**
 
-Introduction
+**#DEV DB CONFIG**
+database: mongodb
+database_uri: mongodb://localhost:27017
 
-    Short-Term Processes or Tasks
+**#TEST DB CONFIG**
+database: mongodb
+database_uri: mongodb://192.167.0.100:27017
 
-    Common Jobs uses
+**#PROD DB CONFIG**
+database: mongodb
+database_uri: mongodb://142.251.36.4:27017
 
-    Job Advantages
+**Pod**
+**Container Java**
+**DataBase Config**
 
+**Dev DB**
+**Test DB**
+**Prod DB**
 
-Jobs
+*image: Arnaldo Sousa*
 
-Introduction
+---
 
-    Job & Pods
+**Introduction**
 
-    Job Deletion
+* **Configuration decoupling**
+* **Container reuse**
+* **ConfigMap key-value pairs**
+* **Key names:**
+Alphanumeric chars, Hyphen (-), Dot (.), Underscore ( _ )
+* **Environment variable names**
 
-    Job Completion
-
-
-Jobs
-
-Container Exit Codes
-
-    Importance of Container Exit Codes
-
-    Uses for Container Exit Codes
-
-    Pod Exceptions
-
-    Valid Codes (0-255)
-
-
-Common Container Exit Codes
-
-    Code 0 : Purposely stopped
-
-    Code 1 : Application error
-
-    Code 126 : Command invoke error
-
-    Code 127 : File or directory not found
-
-    Code 134 : Abnormal termination
-
-    Code 137 : Immediate termination
-
-    Code 139: Segmentation fault
-
-    Code 255 : Exit Status Out Of Range
-
-
-    Container Restart Policy
-
-    Pods → spec.restartPolicy
-
-    Jobs → .spec.template.spec.restartPolicy
-
-    Restart Policy values → Always, OnFailure and Never
-
-    Restart Policy Values
-
-    Pods → .spec.restartPolicy = "Always"
-
-    Jobs → .spec.template.spec.restartPolicy = "OnFailure"
-
-    Jobs → .spec.template.spec.restartPolicy = "Never"
-    Jobs
-
-Restart Policy Application
-
-    restartPolicy applies to all containers
-
-    restartPolicy values in Jobs
-
-    Job status type: Failed
-
-
-    Pods Failures
-
-    Common Failures
-
-    .spec.template.spec.restartPolicy = "Never"
-
-    Job Controller
-
-    .spec.backoffLimit
-
-    kubectl get jobs
-    kubectl describe job <nome-job>
-    
+kubectl exec -it <pod> -- bash
