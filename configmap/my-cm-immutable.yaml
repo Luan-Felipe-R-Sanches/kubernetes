@@ -7,3 +7,5 @@ data:
   my.config.db: |
     database: mariadb
     database_uri: mariadb://localhost:3306
+  test.field: hello
+immutable: true

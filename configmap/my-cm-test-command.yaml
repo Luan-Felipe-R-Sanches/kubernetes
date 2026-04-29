@@ -2,8 +2,9 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: my-cm
+  namespace: default
 data:
-  #Connection database config
+  # Connection database config
   database: mysql
   database_uri: mysql://localhost:3306
 ---
@@ -18,8 +19,8 @@ spec:
     envFrom:
     - configMapRef:
         name: my-cm
-    command:
+    commnad:
     - "bin/sh"
     - "-c"
-    - "echo My Database = $database - $database_uri"
+    - "echo MY Database = $database - $database_uri"
   restartPolicy: Never

@@ -1,0 +1,9 @@
+  # Connection database config
+  database: mysql
+  database_uri: mysql://localhost:3306
+
+  #User inteface
+  font.title: Arial
+  background-colot: red
+  theme.1: clean
+  theme.2: dark
