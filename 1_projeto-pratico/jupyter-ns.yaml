@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: jupyter
+  annotations:
+    desc: "Namespace para o projeto prático de Jupyter"
+    proj: "Final projeto prático do curso de Kubernetes"
+    owner: "Luan Felipe"
