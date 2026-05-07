@@ -1,0 +1,10 @@
+kind: ConfigMap
+apiVersion: v1 
+metadata:
+  name: my-cm
+data:
+  # Configuração de base de dados usando strings multilinhas (|)
+  my.config.db: |
+    database: mariadb
+    database_uri: mariadb://localhost:3306
+# immutable: true  <-- Descomentar isto torna o CM imutável (apenas no ficheiro immutable.yaml)

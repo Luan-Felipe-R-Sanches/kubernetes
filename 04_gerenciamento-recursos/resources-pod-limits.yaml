@@ -6,11 +6,11 @@ spec:
   containers:
     - name: apache-container
       image: httpd
-
       resources:
         requests:
+          # O mínimo garantido para o container arrancar
           cpu: "500m"
           memory: "128Mi"
-      limits:
+        limits:
           cpu: "1000m"
           memory: "256Mi"

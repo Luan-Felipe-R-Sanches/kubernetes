@@ -18,9 +18,9 @@ spec:
     image: nginx
     envFrom:
     - configMapRef:
-        name: my-cm
-    commnad:
-    - "bin/sh"
+        name: my-cm # Injeta todos os dados do CM como Variáveis de Ambiente
+    command:
+    - "/bin/sh"
     - "-c"
     - "echo MY Database = $database - $database_uri"
   restartPolicy: Never

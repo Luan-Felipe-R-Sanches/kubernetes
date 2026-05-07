@@ -1,11 +1,15 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: my-damonset
+  name: my-daemonset
   labels:
     app: frontend
 
 spec:
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 2
   template:
     metadata:
       name: pod-web-server
@@ -16,8 +20,6 @@ spec:
       containers:
         - name: my-container-ngix
           image: nginx
-      nodeName: minekube
-
     selector:
       matchLabels:
         apps: my-app

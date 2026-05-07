@@ -1,15 +1,13 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: my-damonset
+  name: my-daemonset
   labels:
     app: frontend
 
 spec:
   updateStrategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 2
+    type: OnDelete
   template:
     metadata:
       name: pod-web-server
@@ -18,8 +16,8 @@ spec:
           tier: frontend
     spec:
       containers:
-        - name: my-container-ngix
-          image: nginx
+        - name: my-container-tomcat
+          image: tomcat
     selector:
       matchLabels:
         apps: my-app

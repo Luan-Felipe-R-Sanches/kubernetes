@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-cj
+spec:
+  suspend: true # Job está suspenso, não será agendado automaticamente
+  failedJobsHistoryLimit: 5
+  successfulJobsHistoryLimit: 10
+  schedule: "* * * * *" # Executa a cada minuto
+  jobTemplate:
+    spec:
+      parallelism: 5
+      completions: 10
+      completionMode: "Indexed"
+      template:
+        spec:
+          containers:
+            - name: my-container-busybox
+              image: busybox
+              command:
+                - "/bin/sh"
+                - "-c"
+                - "for i in 1 2; do echo Lucky number $i = $((1 + RANDOM % 10));
+                  done"
+          restartPolicy: Never

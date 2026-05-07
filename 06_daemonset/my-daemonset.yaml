@@ -1,13 +1,11 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: my-damonset
+  name: my-daemonset
   labels:
     app: frontend
 
 spec:
-  updateStrategy:
-    type: Ondelete
   template:
     metadata:
       name: pod-web-server
@@ -16,8 +14,8 @@ spec:
           tier: frontend
     spec:
       containers:
-        - name: my-container-tomcat
-          image: tomcat
+        - name: my-container-ngix
+          image: nginx
     selector:
       matchLabels:
         apps: my-app

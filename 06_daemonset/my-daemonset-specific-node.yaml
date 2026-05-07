@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: my-damonset
+  name: my-daemonset
   labels:
     app: frontend
 
@@ -16,6 +16,8 @@ spec:
       containers:
         - name: my-container-ngix
           image: nginx
+      nodeSelector:
+        disktype: ssd
     selector:
       matchLabels:
         apps: my-app

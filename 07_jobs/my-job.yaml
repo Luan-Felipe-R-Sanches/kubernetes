@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+spec:
+  completions: 5 # Quantas vezes o job deve ser concluído com sucesso
+  completionMode: "Indexed"
+  parallelism: 5 # Quantos pods correr ao mesmo tempo
+  activeDeadlineSeconds: 15
+  template:
+    metadata:
+      name: my-job-pod
+    spec:
+      containers:
+        - name: my-container-busybox
+          image: busybox
+          command:
+            - "/bin/sh"
+            - "-c"
+            - "for i in 1 2; do echo Lucky number $i = $((1 + RANDOM % 10));
+              done"
+      restartPolicy: Never # Jobs precisam de restartPolicy Never ou OnFailure

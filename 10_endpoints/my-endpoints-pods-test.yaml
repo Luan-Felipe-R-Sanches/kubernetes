@@ -4,7 +4,7 @@ kind: Endpoints
 metadata:
    name: my-endpoints-service
 subsets:
-- adresses:
+- addresses:
     - ip: 10.244.0.9 #Apache
     - ip: 10.244.0.10 #Nginx
   ports: 

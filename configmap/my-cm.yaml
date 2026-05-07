@@ -1,9 +1,0 @@
-kind: ConfigMap
-apiVersion:
-metadata:
-  name: my-cm
-data:
-  # Connection database config
-  my.config.db: |
-    database: mariadb
-    database_uri: mariadb://localhost:3306
