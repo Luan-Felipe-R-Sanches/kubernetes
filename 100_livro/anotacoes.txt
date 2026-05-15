@@ -1,0 +1,17 @@
+# Pod → agrupa containers
+# Service → abstrai e gerencia a rede entre Pods
+# Ingress → gerencia acesso externo e roteamento para múltiplos serviços
+# ClusterIP → expõe o serviço apenas internamente (ideal para bancos de dados)
+# NodePort → expõe o serviço em uma porta específica do Node (ideal para testes)
+# LoadBalancer → provisiona balanceador de carga externo (ideal para produção)
+# Deployment → garante execução, escalabilidade e atualizações de Pods stateless
+# StatefulSet → gerencia Pods com identidade fixa, ordem e armazenamento persistente
+# Control Plane → gerencia o cluster (composto por API, etcd, Scheduler e Controllers)
+# API Server → porta de entrada que recebe e processa requisições do cluster
+# etcd → banco de dados chave-valor que armazena o estado do cluster
+# Scheduler → aloca os Pods recém-criados nos Nodes adequados
+# Controller Manager → monitora e mantém o estado desejado do cluster
+# Worker Node → máquina física ou virtual que executa os Pods
+# Kubelet → agente do Node que gerencia Pods e se comunica com o Control Plane
+# Kube-proxy → gerencia regras de rede e roteamento nos Nodes
+# CRI (Container Runtime Interface) → software responsável por executar os containers

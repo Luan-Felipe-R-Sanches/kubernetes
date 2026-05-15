@@ -1,0 +1,24 @@
+# Ingress: gerencia o acesso externo aos serviços em um cluster, geralmente HTTP. Ele pode fornecer balanceamento de carga, terminação SSL e hospedagem virtual baseada em nome.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: exemplo-ingress
+spec:
+  rules:
+    - host: app.exemplo.com
+      http:
+        paths:
+          - path: /frontend
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80
+          - path: /backend
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 80
